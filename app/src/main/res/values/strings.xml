@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Theft Reporting</string>
+    <string name="title_activity_menu">User</string>
+    <string name="title_home">Dashboard</string>
+    <string name="title_Tambah">Add Data</string>
+    <string name="title_account">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
