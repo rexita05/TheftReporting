@@ -120,6 +120,7 @@ public class DasboardFragment extends Fragment {
                         });
 
                 }
+                //Start Metode
                 long jml_kerugian = 0;
                 long jml_waktu = 0;
                 for (int i=0;i <dataPencurianList.size();i++){
@@ -166,6 +167,7 @@ public class DasboardFragment extends Fragment {
                 adapter = new DataPencurianAdapter(getActivity(), dataPencurianList);
                 rvData.setAdapter(adapter);
             }
+            //End Metode
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
