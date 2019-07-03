@@ -1,5 +1,6 @@
 package com.example.rexita_pc.myskripsi.Fragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -55,6 +56,7 @@ public class LogoutFragment extends Fragment {
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             View rootView = inflater.inflate(R.layout.fragment_logout, container, false);
+
             viewName = rootView.findViewById(R.id.viewName);
             viewAddress = rootView.findViewById(R.id.viewAddress);
             viewNumber = rootView.findViewById(R.id.viewNumber);
@@ -164,5 +166,4 @@ public class LogoutFragment extends Fragment {
             }
         });
     }
-
 }
