@@ -97,7 +97,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="10dp"
             android:padding="12dp"
-            android:background="@color/black"
+            android:background="@color/green"
             android:textColor="@color/white"
             android:text="Logout"/>
 
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:background="@color/black"
+            android:background="@color/green"
             android:textColor="@color/white"
             android:text="Login"/>
 

@@ -122,6 +122,22 @@ public class SignupActivity extends AppCompatActivity {
             _nameText.setError(null);
         }
 
+        String address = _addressText.getText().toString();
+        if (TextUtils.isEmpty(address)|| address.length() <5){
+            _addressText.setError("at least 5 characters");
+            valid = false;
+        } else {
+            _addressText.setError(null);
+        }
+
+        String number = _numberText.getText().toString();
+        if (TextUtils.isEmpty(number)|| number.length() <11){
+            _numberText.setError("at least 11 characters");
+            valid = false;
+        } else {
+            _numberText.setError(null);
+        }
+
         String email = _emailText.getText().toString();
         if (TextUtils.isEmpty(email)|| !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");

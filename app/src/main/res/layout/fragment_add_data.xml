@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Masukkan Data Pencurian"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:textSize="25dp"/>
 
@@ -17,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
 
@@ -30,6 +32,7 @@
                 android:id="@+id/txtWaktu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pink"
                 android:editable="false"
                 android:inputType="time"
                 android:hint="Waktu"
@@ -45,6 +48,7 @@
                 android:id="@+id/txtTanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pink"
                 android:editable="false"
                 android:hint="Tanggal"
                 android:focusable="false"/>
@@ -59,6 +63,7 @@
                 android:id="@+id/txtKejadian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pink"
                 android:hint="Kejadian" />
         </android.support.design.widget.TextInputLayout>
 
@@ -71,6 +76,7 @@
                 android:id="@+id/txtLokasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pink"
                 android:hint="Lokasi" />
         </android.support.design.widget.TextInputLayout>
 
@@ -79,7 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:textColor="@color/pink">
         </Spinner>
 
         <android.support.design.widget.TextInputLayout
@@ -92,6 +99,7 @@
                 android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/pink"
                 android:hint="Kisaran Kerugian" />
         </android.support.design.widget.TextInputLayout>
 
@@ -100,8 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"
-            android:textColor="#FFFFFF"
-            android:background="@android:color/black"
+            android:textColor="@color/white"
+            android:background="#4A9586"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
