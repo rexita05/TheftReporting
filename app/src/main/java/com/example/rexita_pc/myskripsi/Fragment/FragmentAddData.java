@@ -218,7 +218,7 @@ public class FragmentAddData extends Fragment {
                 pd.show();
                 if (currentUser == null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("Login terlebih dahulu!")
+                    builder.setMessage("Silahkan Login terlebih dahulu!")
                             .setCancelable(false)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
