@@ -13,12 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.rexita_pc.myskripsi.Model.mUser;
 import com.example.rexita_pc.myskripsi.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,15 +31,20 @@ public class SignupActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword    ";
     private FirebaseAuth mAuth;
+//    private DatabaseReference databaseReference;
 
     @BindView(R.id.input_name) EditText _nameText;
-//    @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
+    @BindView(R.id.input_address) EditText _addressText;
+    @BindView(R.id.input_number) EditText _numberText;
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
+//    @BindView(R.id.input_reEnterPassword) EditText _reEnterPasswordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
 
     android.app.AlertDialog dialog;
+
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +52,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference("user");
         mAuth = FirebaseAuth.getInstance();
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +89,14 @@ public class SignupActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+                            mUser userInfo = new mUser();
+                            userInfo.setUid(user.getUid());
+                            userInfo.setName(_nameText.getText().toString());
+                            userInfo.setAddress(_addressText.getText().toString());
+                            userInfo.setEmail(_emailText.getText().toString());
+                            userInfo.setNumber(_numberText.getText().toString());
+                            databaseReference.child(user.getUid()).setValue(userInfo);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

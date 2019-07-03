@@ -11,7 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:src="@drawable/login"/>
+    <TextView
+        android:id="@+id/viewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Nama  :"/>
+
+    <TextView
+        android:id="@+id/viewAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Address  :"/>
+
+    <TextView
+        android:id="@+id/viewNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Number  : "/>
+
+    <TextView
+        android:id="@+id/viewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email :"/>
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
