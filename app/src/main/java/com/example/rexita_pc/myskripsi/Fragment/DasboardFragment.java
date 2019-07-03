@@ -138,6 +138,7 @@ public class DasboardFragment extends Fragment {
                     double waktu = Float.parseFloat(dataPencurianList.get(j).getInterval()) /
                             (double) Math.sqrt(jml_waktu)*bobotWaktu*-1;
 //                    Log.d(TAG, "Normalisasi Waktu*Bobot: "+String.valueOf(waktu));
+
                     double hasil = kerugian+waktu;
 //                    Log.d(TAG, "Perangkingan: " + hasil);
 
