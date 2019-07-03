@@ -126,7 +126,6 @@ public class DasboardFragment extends Fragment {
                 for (int i=0;i <dataPencurianList.size();i++){
                     jml_kerugian += (long) Math.pow(Integer.parseInt(dataPencurianList.get(i).getKerugian()),2);
                     jml_waktu += (long) Math.pow(Integer.parseInt(dataPencurianList.get(i).getInterval()),2);
-
                 }
 
                 ArrayList<DataPencurian> rank =new ArrayList<DataPencurian>();
