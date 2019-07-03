@@ -159,7 +159,7 @@ public class DasboardFragment extends Fragment {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     /**
-                                     * Baris kode yang akan dipanggil apabila proses update barang sukses
+                                     * Baris kode yang akan dipanggil apabila proses update rangking sukses
                                      */
                                 }
                             });
