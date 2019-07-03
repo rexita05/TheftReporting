@@ -1,6 +1,7 @@
 package com.example.rexita_pc.myskripsi.Activity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -111,6 +112,9 @@ public class LoginActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Please Wait..");
+        pd.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -126,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                             Snackbar.make(getCurrentFocus(), "Authentication failed.",Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
+                        pd.dismiss();
                     }
                 });
     }
@@ -185,7 +189,9 @@ public class LoginActivity extends AppCompatActivity {
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Please Wait..");
+        pd.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -204,6 +210,7 @@ public class LoginActivity extends AppCompatActivity {
                             Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
+                       pd.dismiss();
 
                     }
                 });
@@ -212,6 +219,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // [START signin]
     private void signIn() {
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }

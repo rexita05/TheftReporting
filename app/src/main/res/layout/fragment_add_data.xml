@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Submit"
             android:textColor="#FFFFFF"
-            android:background="@color/colorPrimary"
+            android:background="@android:color/black"
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"

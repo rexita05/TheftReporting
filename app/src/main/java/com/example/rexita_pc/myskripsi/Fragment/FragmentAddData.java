@@ -1,6 +1,7 @@
 package com.example.rexita_pc.myskripsi.Fragment;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -89,7 +90,7 @@ public class FragmentAddData extends Fragment {
     private FirebaseAuth mAuth;
     List<String> list = new ArrayList<>();
     Calendar c;
-
+    ProgressDialog pd;
     private int mYear, mMonth, mDay, mHour, mMinute;
     long interval;
 
@@ -103,6 +104,7 @@ public class FragmentAddData extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_add_data, container, false);
         //finding listview
         ButterKnife.bind(this, rootView);
+        pd = new ProgressDialog(getActivity());
         mAuth = FirebaseAuth.getInstance();
         txtKerugian.addTextChangedListener(onTextChangedListener());
         c = Calendar.getInstance();
@@ -212,6 +214,8 @@ public class FragmentAddData extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseUser currentUser = mAuth.getCurrentUser();
+                pd.setMessage("Please Wait..");
+                pd.show();
                 if (currentUser == null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage("Login terlebih dahulu!")
@@ -221,10 +225,12 @@ public class FragmentAddData extends Fragment {
                                     //do things
                                     startActivity(new Intent(getActivity(), LoginActivity.class));
                                     getActivity().finish();
+                                    pd.dismiss();
                                 }
                             });
                     AlertDialog alert = builder.create();
                     alert.show();
+
 
                 } else if (!isEmpty(txtWaktu.getText().toString()) && !isEmpty(txtTanggal.getText().toString()) && !isEmpty(txtKejadian.getText().toString())
                         && !isEmpty(txtLokasi.getText().toString()) && !isEmpty(txtKerugian.getText().toString()) && kecamatan != null) {
@@ -236,6 +242,7 @@ public class FragmentAddData extends Fragment {
                             , txtLokasi.getText().toString(), kecamatan, 0, names, waktu, 0, null));
                     Toast.makeText(getActivity(), "Applying " + kecamatan, Toast.LENGTH_SHORT).show();
                 } else {
+                    pd.dismiss();
                     Snackbar.make(getView(), "Data tidak boleh kosong", Snackbar.LENGTH_SHORT).show();
                 }
 
@@ -245,6 +252,7 @@ public class FragmentAddData extends Fragment {
 
     //cek data sebelum di tambahkan dalam firebase database
     private void submitDataPencurian(DataPencurian dataPencurian) {
+
         databaseReference.child("data_pencurian").push().setValue(dataPencurian).addOnSuccessListener(getActivity(),
                 new OnSuccessListener<Void>() {
                     @Override
@@ -256,9 +264,11 @@ public class FragmentAddData extends Fragment {
                         txtLokasi.setText("");
                         txtKerugian.setText("");
                         sendFCMPush();
+                        pd.dismiss();
 //                        spinKecamatan.setText("");
                     }
                 });
+
     }
 
     private void sendFCMPush() {
