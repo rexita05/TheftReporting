@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.android.volley.VolleyLog.TAG;
 
 public class LogoutFragment extends Fragment {
 
@@ -81,6 +84,7 @@ public class LogoutFragment extends Fragment {
             if (currentUser != null){
                 Uri url = mAuth.getCurrentUser().getPhotoUrl();
                 Glide.with(getActivity()).load(url).thumbnail(0.5f).into(mImage);
+                dataLogin();
                 btnLogout.setVisibility(View.VISIBLE);
                 btnLogin.setVisibility(View.INVISIBLE);
             }else {
@@ -88,7 +92,7 @@ public class LogoutFragment extends Fragment {
                 btnLogin.setVisibility(View.VISIBLE);
             }
 
-            dataLogin();
+
 
 
             return rootView;
@@ -150,13 +154,13 @@ public class LogoutFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot user : dataSnapshot.getChildren()){
                     mUser data = user.getValue(mUser.class);
-                    FirebaseUser u = firebaseAuth.getCurrentUser();
-                    if(u.getEmail().equals(data.getEmail())){
+                    if  (data != null){
                         viewName.setText(data.getName());
                         viewAddress.setText(data.getAddress());
                         viewNumber.setText(data.getNumber());
                         viewEmail.setText(data.getEmail());
                     }
+
                 }
             }
 
