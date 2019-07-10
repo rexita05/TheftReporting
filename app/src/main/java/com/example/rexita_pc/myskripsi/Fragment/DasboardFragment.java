@@ -153,8 +153,7 @@ public class DasboardFragment extends Fragment {
                 while(itr.hasNext()){
                     DataPencurian st=(DataPencurian) itr.next();
                     Log.d(TAG, "onDataChange: "+st.getRangking());
-                    databaseReference.child("data_pencurian").child(st.getKey()).
-                            setValue(st).
+                    databaseReference.child("data_pencurian").child(st.getKey()).setValue(st).
                             addOnSuccessListener(getActivity(), new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
