@@ -14,6 +14,8 @@ import com.example.rexita_pc.myskripsi.Activity.DetailPencurianActivity;
 import com.example.rexita_pc.myskripsi.Model.DataPencurian;
 import com.example.rexita_pc.myskripsi.R;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -51,10 +53,15 @@ public class DataPencurianAdapter extends RecyclerView.Adapter<DataPencurianAdap
         });
 
         if (dataPencurian.getKerugian() == null){
-            holder.txtKerugian.setText("-");
+//            holder.txtKerugian.setText("-");
         }
         else {
             holder.txtKerugian.setText(dataPencurian.getKerugian());
+            DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+            symbols.setDecimalSeparator(',');
+            DecimalFormat decimalFormat = new DecimalFormat("Rp ###,###,###,###", symbols);
+            String prezzo = decimalFormat.format(Integer.parseInt(dataPencurian.getKerugian()));
+            holder.txtKerugian.setText("Kerugian            : "+prezzo);
         }
 
         int status;

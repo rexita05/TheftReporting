@@ -71,7 +71,6 @@ public class DasboardFragment extends Fragment {
                 }
                 bobotKerugian  = kerugian;
                 bobotWaktu();
-
             }
 
             @Override
@@ -118,7 +117,6 @@ public class DasboardFragment extends Fragment {
                                 return Double.valueOf(o2.getRangking()).compareTo(Double.valueOf(o1.getRangking()));
                             }
                         });
-
                 }
                 //Start Metode
                 long jml_kerugian = 0;
@@ -132,11 +130,11 @@ public class DasboardFragment extends Fragment {
                 for (int j=0;j < dataPencurianList.size();j++){
                     double kerugian = Float.parseFloat(dataPencurianList.get(j).getKerugian()) /
                             (double) Math.sqrt(jml_kerugian)*bobotKerugian;
-//                    Log.d(TAG, "Normalisasi Kerugian*Bobot: "+String.valueOf(kerugian));
+//                    Log.d(TAG, "Preferensi Kerugian: "+String.valueOf(kerugian));
 
                     double waktu = Float.parseFloat(dataPencurianList.get(j).getInterval()) /
                             (double) Math.sqrt(jml_waktu)*bobotWaktu*-1;
-//                    Log.d(TAG, "Normalisasi Waktu*Bobot: "+String.valueOf(waktu));
+//                    Log.d(TAG, "Preferensi Waktu: "+String.valueOf(waktu));
 
                     double hasil = kerugian+waktu;
 //                    Log.d(TAG, "Perangkingan: " + hasil);

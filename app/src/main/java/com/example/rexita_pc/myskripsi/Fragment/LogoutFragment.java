@@ -91,10 +91,6 @@ public class LogoutFragment extends Fragment {
                 btnLogout.setVisibility(View.INVISIBLE);
                 btnLogin.setVisibility(View.VISIBLE);
             }
-
-
-
-
             return rootView;
         }
 
@@ -144,8 +140,6 @@ public class LogoutFragment extends Fragment {
                     });
             AlertDialog alert = builder.create();
             alert.show();
-
-
         }
 
     public void dataLogin(){
@@ -160,7 +154,6 @@ public class LogoutFragment extends Fragment {
                         viewNumber.setText(data.getNumber());
                         viewEmail.setText(data.getEmail());
                     }
-
                 }
             }
 
