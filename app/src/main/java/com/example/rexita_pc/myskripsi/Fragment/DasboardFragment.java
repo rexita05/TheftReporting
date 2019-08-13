@@ -139,10 +139,11 @@ public class DasboardFragment extends Fragment {
                     double hasil = kerugian+waktu;
 //                    Log.d(TAG, "Perangkingan: " + hasil);
 
-                    dataPencurian = new DataPencurian(dataPencurianList.get(j).getWaktu(), dataPencurianList.get(j).getTanggal(),
-                            dataPencurianList.get(j).getKejadian(), dataPencurianList.get(j).getLokasi(),
-                            dataPencurianList.get(j).getKecamatan(),dataPencurianList.get(j).getStatus(),
-                            dataPencurianList.get(j).getKerugian(),dataPencurianList.get(j).getInterval(),
+                    dataPencurian = new DataPencurian(dataPencurianList.get(j).getWaktu(),dataPencurianList.get(j).getTanggal(),
+                            dataPencurianList.get(j).getKejadian(),dataPencurianList.get(j).getKorban(),
+                            dataPencurianList.get(j).getLokasi(),dataPencurianList.get(j).getKecamatan(),
+                            dataPencurianList.get(j).getStatus(),dataPencurianList.get(j).getKerugian(),
+                            dataPencurianList.get(j).getInterval(),
                             hasil,dataPencurianList.get(j).getKey());
                     rank.add(dataPencurian);
                 }

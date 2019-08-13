@@ -73,20 +73,14 @@ import static com.android.volley.VolleyLog.TAG;
 
 public class FragmentAddData extends Fragment {
 
-    @BindView(R.id.txtWaktu)
-    TextView txtWaktu;
-    @BindView(R.id.txtTanggal)
-    TextView txtTanggal;
-    @BindView(R.id.txtKejadian)
-    TextView txtKejadian;
-    @BindView(R.id.txtLokasi)
-    TextView txtLokasi;
-    @BindView(R.id.txtKerugian)
-    EditText txtKerugian;
-    @BindView(R.id.btnSubmit)
-    Button btnSubmit;
-    @BindView(R.id.spinnerKecamatan)
-    Spinner spinnerKecamatan;
+    @BindView(R.id.txtWaktu) TextView txtWaktu;
+    @BindView(R.id.txtTanggal) TextView txtTanggal;
+    @BindView(R.id.txtKejadian) TextView txtKejadian;
+    @BindView(R.id.txtKorban) TextView txtKorban;
+    @BindView(R.id.txtLokasi) TextView txtLokasi;
+    @BindView(R.id.txtKerugian) EditText txtKerugian;
+    @BindView(R.id.btnSubmit) Button btnSubmit;
+    @BindView(R.id.spinnerKecamatan) Spinner spinnerKecamatan;
     private FirebaseAuth mAuth;
     List<String> list = new ArrayList<>();
     Calendar c;
@@ -237,14 +231,13 @@ public class FragmentAddData extends Fragment {
                     AlertDialog alert = builder.create();
                     alert.show();
 
-
                 } else if (!isEmpty(txtWaktu.getText().toString()) && !isEmpty(txtTanggal.getText().toString()) && !isEmpty(txtKejadian.getText().toString())
-                        && !isEmpty(txtLokasi.getText().toString()) && !isEmpty(txtKerugian.getText().toString()) && kecamatan != null) {
+                        && !isEmpty(txtKorban.getText().toString()) && !isEmpty(txtLokasi.getText().toString()) && !isEmpty(txtKerugian.getText().toString()) && kecamatan != null) {
                     kejadian = txtKejadian.getText().toString();
                     String kerugian = txtKerugian.getText().toString();
                     String names = kerugian.replaceAll(",", "");
                     String waktu = String.valueOf(interval);
-                    submitDataPencurian(new DataPencurian(txtWaktu.getText().toString(), txtTanggal.getText().toString(), txtKejadian.getText().toString()
+                    submitDataPencurian(new DataPencurian(txtWaktu.getText().toString(), txtTanggal.getText().toString(), txtKejadian.getText().toString(), txtKorban.getText().toString()
                             , txtLokasi.getText().toString(), kecamatan, 0, names, waktu, 0, null));
                     Toast.makeText(getActivity(), "Applying " + kecamatan, Toast.LENGTH_SHORT).show();
                 } else {
@@ -267,6 +260,7 @@ public class FragmentAddData extends Fragment {
                         txtWaktu.setText("");
                         txtTanggal.setText("");
                         txtKejadian.setText("");
+                        txtKorban.setText("");
                         txtLokasi.setText("");
                         txtKerugian.setText("");
                         sendFCMPush();
@@ -325,7 +319,8 @@ public class FragmentAddData extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                         Log.e("!_@@_Errors--", error + "");
                     }
-                }) {
+                })
+        {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -380,5 +375,4 @@ public class FragmentAddData extends Fragment {
             }
         };
     }
-
 }

@@ -19,6 +19,7 @@ public class DetailPencurianActivity extends AppCompatActivity {
 
     @BindView(R.id.txtWaktu) TextView txtWaktu;
     @BindView(R.id.txtKejadian) TextView txtKejadian;
+    @BindView(R.id.txtKorban) TextView txtKorban;
     @BindView(R.id.txtLokasi) TextView txtLokasi;
     @BindView(R.id.txtKecamatan) TextView txtKecamatan;
     @BindView(R.id.txtKerugian) TextView txtKerugian;
@@ -34,6 +35,7 @@ public class DetailPencurianActivity extends AppCompatActivity {
             txtWaktu.setText("Waktu                 : "+dataPencurian.getWaktu());
             txtTanggal.setText("Tanggal              : "+dataPencurian.getTanggal());
             txtKejadian.setText("Kejadian             : "+dataPencurian.getKejadian());
+            txtKorban.setText("Korban                : "+dataPencurian.getKorban());
             txtLokasi.setText("Lokasi                 : "+dataPencurian.getLokasi());
             txtKecamatan.setText("Kecamatan       : "+dataPencurian.getKecamatan());
 //            txtKerugian.setText("Kerugian            : "+dataPencurian.getKerugian());

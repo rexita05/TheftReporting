@@ -61,7 +61,7 @@ public class DataPencurianAdapter extends RecyclerView.Adapter<DataPencurianAdap
             symbols.setDecimalSeparator(',');
             DecimalFormat decimalFormat = new DecimalFormat("Rp ###,###,###,###", symbols);
             String prezzo = decimalFormat.format(Integer.parseInt(dataPencurian.getKerugian()));
-            holder.txtKerugian.setText("Kerugian            : "+prezzo);
+            holder.txtKerugian.setText("Kerugian  : "+prezzo);
         }
 
         int status;
