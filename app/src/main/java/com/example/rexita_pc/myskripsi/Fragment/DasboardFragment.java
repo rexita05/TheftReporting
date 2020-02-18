@@ -174,6 +174,8 @@ public class DasboardFragment extends Fragment {
         });
     }
 
+}
+
 //    private void updatePerangkingan(DataPencurian dataPencurian) {
 //        databaseReference.child("data_pencurian").child(dataPencurian.getKey()).setValue(dataPencurian).
 //                addOnSuccessListener(getActivity(), new OnSuccessListener<Void>() {
@@ -185,4 +187,3 @@ public class DasboardFragment extends Fragment {
 //                    }
 //                });
 //    }
-}
